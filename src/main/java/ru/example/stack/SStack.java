@@ -10,7 +10,7 @@ class AbsStack {
         ch = new char[10];
     }
 
-    private void push(char sym) {
+    private void _push(char sym) {
         // добавляем элемент в стэк
         if (index < ch.length) {
             ch[index] = sym;
@@ -19,7 +19,7 @@ class AbsStack {
         else System.out.println("Стэк переполнен.");
     }
 
-    private void pop() {
+    private void _pop() {
         //убираем элемент из стэка
         if (index > 0) {
             index--;
@@ -27,14 +27,14 @@ class AbsStack {
         else System.out.println("Стэк пуст.");
     }
 
-    void usepush(char x) {
+    void push(char x) {
         //Вызов добавления
-        push(x);
+        _push(x);
     }
 
-    void usepop() {
+    void pop() {
         //Вызов удаления
-        pop();
+        _pop();
     }
 
     void showstack() {
@@ -60,29 +60,29 @@ public class SStack {
 
         // загрузка стэка элементами
         for (int i = 0; i < 10; i++) {
-            stack.usepush(ch[i]);
+            stack.push(ch[i]);
         }
         stack.showstack();
 
 //        Удаление элемента стэка
-        stack.usepop();
+        stack.pop();
         System.out.println();
 //        Проверка удаления
         stack.showstack();
         System.out.println();
 //   Проверка переполнения
 
-        stack.usepush('P');
+        stack.push('P');
         stack.showstack();
         System.out.println();
-        stack.usepush('O');
+        stack.push('O');
         stack.showstack();
         System.out.println();
         System.out.println();
 
 //        Проверка пустого стэка
         for (int i = 0; i < ch.length + 1;i++) {
-            stack.usepop();
+            stack.pop();
             stack.showstack();
             System.out.println();
         }
